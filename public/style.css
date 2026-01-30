@@ -1,0 +1,171 @@
+:root {
+  --body-bg: #f0f2f5;
+  --container-bg: #fff;
+  --text-color: #000;
+  --chatbox-bg: #fafafa;
+  --chatbox-border: #ddd;
+  --input-bg: #fff;
+  --input-border: #ccc;
+  --input-text: #000;
+  --user-bubble-bg: #007bff;
+  --bot-bubble-bg: #28a745;
+  --bubble-text: #fff;
+}
+
+body.dark-mode {
+  --body-bg: #18191a;
+  --container-bg: #242526;
+  --text-color: #e4e6eb;
+  --chatbox-bg: #3a3b3c;
+  --chatbox-border: #444;
+  --input-bg: #404040;
+  --input-border: #555;
+  --input-text: #e4e6eb;
+  --user-bubble-bg: #007bff;
+  --bot-bubble-bg: #303030;
+  --bubble-text: #e4e6eb;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--container-bg);
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  /* text-align: center; */ /* No longer needed */
+  margin: 0; /* Remove default margin */
+}
+
+/* Theme Switch Styles */
+.theme-switch-container {
+  /* Styles for positioning are now in .header-container */
+  margin: 0; /* Remove default margin */
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px; /* Smaller width */
+  height: 24px; /* Smaller height */
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px; /* Match smaller height */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; /* Smaller handle */
+  width: 18px; /* Smaller handle */
+  left: 3px;   /* Adjusted position */
+  bottom: 3px; /* Adjusted position */
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px); /* Adjusted translation */
+}
+
+.chat-box {
+  height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid var(--chatbox-border);
+  border-radius: 4px;
+  background-color: var(--chatbox-bg);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.message {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 80%;
+  color: var(--bubble-text);
+}
+
+.message.user {
+  background-color: var(--user-bubble-bg);
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: var(--bot-bubble-bg);
+  align-self: flex-start;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  font-size: 16px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0b5ed7;
+}
+
